@@ -152,6 +152,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/volverbtn" />
 
+    <Button
+        android:id="@+id/cerrarsesionbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Cerrar Sesion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="100dp"
+        android:layout_height="89dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logoapp1"
+        tools:layout_editor_absoluteY="-10dp" />
+
 
 
 

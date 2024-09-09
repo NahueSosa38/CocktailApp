@@ -3,6 +3,7 @@ package com.example.cocktailapp
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,6 +18,15 @@ class listabebidas : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val btn10: Button = findViewById(R.id.cerrarsesionbtn)
+        btn10.setOnClickListener {
+
+            val intent10 = Intent(this, LoginPage::class.java)
+            startActivity(intent10)
+
+            Toast.makeText(this, "Sesion cerrada", Toast.LENGTH_SHORT).show()
         }
 
         val btn6: Button = findViewById(R.id.vermasbtn)
