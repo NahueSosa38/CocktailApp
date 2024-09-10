@@ -36,5 +36,20 @@ class listabebidas : AppCompatActivity() {
             startActivity(intent6)
 
         }
+
+        val btnlistabebidas_volver: Button = findViewById(R.id.listabebidas_volver)
+        btnlistabebidas_volver.setOnClickListener {
+
+            val intentlistabebidas_volver: Intent = Intent(this, MainPage::class.java)
+            startActivity(intentlistabebidas_volver)
+
+        }
+
+        val btnvermas_son: Button = findViewById(R.id.vermas_son)
+        btnvermas_son.setOnClickListener {
+
+            Toast.makeText(this, "Página no disponible", Toast.LENGTH_SHORT).show()
+
+        }
     }
 }

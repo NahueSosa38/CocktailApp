@@ -7,12 +7,47 @@
     android:layout_height="match_parent"
     tools:context=".listabebidas">
 
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="286dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="16dp"
+        android:text="Se prepara en un vaso alto o copa de balón con hielo. Licor de durazno, y dos partes de jugo de naranja y arándano."
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="103dp"
+        android:layout_height="104dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vermasbtn"
+        app:layout_constraintVertical_bias="0.110000014"
+        app:srcCompat="@drawable/sex_on_the_beach" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
+        android:text="SEX ON THE BEACH"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vermasbtn" />
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="103dp"
         android:layout_height="104dp"
         android:layout_marginTop="120dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.110000014"
         app:srcCompat="@drawable/gin_tonic"
         tools:layout_editor_absoluteX="7dp" />
 
@@ -69,6 +104,26 @@
         app:srcCompat="@drawable/logoapp1"
         tools:layout_editor_absoluteY="-10dp" />
 
+    <Button
+        android:id="@+id/listabebidas_volver"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="Volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/vermas_son"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="8dp"
+        android:text="Ver mas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
