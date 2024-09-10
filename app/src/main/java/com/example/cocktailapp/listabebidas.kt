@@ -20,7 +20,7 @@ class listabebidas : AppCompatActivity() {
             insets
         }
 
-        val btn10: Button = findViewById(R.id.cerrarsesionbtn)
+        val btn10: Button = findViewById(R.id.cerrarsesionbtn2)
         btn10.setOnClickListener {
 
             val intent10 = Intent(this, LoginPage::class.java)

@@ -1,12 +1,7 @@
 package com.example.cocktailapp
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.Toast
@@ -63,7 +58,7 @@ class MainPage : AppCompatActivity() {
             }
         }
 
-        val btn10: Button = findViewById(R.id.cerrarsesionbtn)
+        val btn10: Button = findViewById(R.id.cerrarsesionbtn2)
         btn10.setOnClickListener {
 
             val intent10 = Intent(this, LoginPage::class.java)

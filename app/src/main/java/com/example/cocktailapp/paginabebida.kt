@@ -3,6 +3,7 @@ package com.example.cocktailapp
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -34,5 +35,15 @@ class paginabebida : AppCompatActivity() {
             startActivity(intent9)
 
         }
+
+        val btn10: Button = findViewById(R.id.cerrarsesionbtn2)
+        btn10.setOnClickListener {
+
+            val intent10 = Intent(this, LoginPage::class.java)
+            startActivity(intent10)
+
+            Toast.makeText(this, "Sesion cerrada", Toast.LENGTH_SHORT).show()
+        }
+
     }
 }
