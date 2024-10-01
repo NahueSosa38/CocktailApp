@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".listabebidas">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="?attr/colorPrimary"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView15"
         android:layout_width="286dp"
@@ -51,10 +62,6 @@
         app:srcCompat="@drawable/gin_tonic"
         tools:layout_editor_absoluteX="7dp" />
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/barritasuperior"/>
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -86,15 +93,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <Button
-        android:id="@+id/cerrarsesionbtn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Cerrar Sesion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView7"

@@ -2,18 +2,26 @@ package com.example.cocktailapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.appcompat.widget.Toolbar
 
 class paginabebida : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_paginabebida)
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -36,14 +44,34 @@ class paginabebida : AppCompatActivity() {
 
         }
 
-        val btn10: Button = findViewById(R.id.cerrarsesionbtn2)
-        btn10.setOnClickListener {
+    }
 
-            val intent10 = Intent(this, LoginPage::class.java)
-            startActivity(intent10)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
-            Toast.makeText(this, "Sesion cerrada", Toast.LENGTH_SHORT).show()
+        menuInflater.inflate(R.menu.menu_deplegable, menu)
+
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+
+            R.id.itemcerrarsesion->{
+
+                cerrarSesion()
+            }
+            R.id.itemtyc->{
+
+                Toast.makeText(this, "Funcion en proceso", Toast.LENGTH_SHORT).show()
+            }
+
         }
+        return true
+    }
 
+    fun cerrarSesion() {
+        val intent = Intent(this, LoginPage::class.java)
+        startActivity(intent)
+        Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show()
     }
 }

@@ -30,6 +30,19 @@ class LoginPage : AppCompatActivity() {
             insets
         }
 
+
+        var preferencias = getSharedPreferences(resources.getString(R.string.sp_credenciales),
+            MODE_PRIVATE)
+        var save_user = preferencias.getString(resources.getString(R.string.user_name),"")
+        var save_pass = preferencias.getString(resources.getString(R.string.user_password),"")
+
+        if (save_user != null && save_pass != null){
+
+            startMainPage(save_user)
+        }
+
+
+
         val btn1: Button = findViewById(R.id.inibtn)
         btn1.setOnClickListener {
 
@@ -40,7 +53,9 @@ class LoginPage : AppCompatActivity() {
             } else {
 
                 if(cbUser.isChecked) {
-                    Log.i("TODO","Funcionalidad de recordar usuario")
+                    var preferencias = getSharedPreferences(resources.getString(R.string.sp_credenciales),
+                        MODE_PRIVATE)
+                    preferencias.edit().putString(getString(R.string.user_name),etEditUser.text.toString()).apply()
                 }
 
                 val intent1: Intent = Intent(this, MainPage::class.java)
@@ -57,4 +72,14 @@ class LoginPage : AppCompatActivity() {
         }
 
     }
+
+
+    private fun startMainPage(saveUser: String) {
+
+        val intent1: Intent = Intent(this, MainPage::class.java)
+        startActivity(intent1)
+        finish()
+
+    }
+
 }
