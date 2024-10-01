@@ -62,24 +62,15 @@ class listabebidas : AppCompatActivity() {
 
         when(item.itemId){
 
-            R.id.itemcerrarsesion->{
-
-                cerrarSesion()
+            R.id.itemcerrarsesion -> {
+                Util.cerrarSesion(this) // Llama a la función desde la clase Util
             }
 
-            R.id.itemtyc->{
-
-                Toast.makeText(this, "Funcion en proceso", Toast.LENGTH_SHORT).show()
+            R.id.itemtyc -> {
+                Toast.makeText(this, "Función en proceso", Toast.LENGTH_SHORT).show()
             }
-
         }
         return true
-    }
-
-    fun cerrarSesion() {
-        val intent = Intent(this, LoginPage::class.java)
-        startActivity(intent)
-        Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show()
     }
 
 }
