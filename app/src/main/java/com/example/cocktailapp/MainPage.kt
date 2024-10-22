@@ -15,7 +15,7 @@ import androidx.appcompat.widget.Toolbar
 
 class MainPage : AppCompatActivity() {
     lateinit var cbLista: CheckBox
-    lateinit var cbSinAlcohol: CheckBox
+    lateinit var cbRandom: CheckBox
     lateinit var cbIngredientes: CheckBox
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +29,7 @@ class MainPage : AppCompatActivity() {
 
 
         cbLista = findViewById(R.id.cblista)
-        cbSinAlcohol = findViewById(R.id.cbsinalcohol)
+        cbRandom = findViewById(R.id.cbrandom)
         cbIngredientes = findViewById(R.id.cbingredientes)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -39,21 +39,21 @@ class MainPage : AppCompatActivity() {
 
         fun validarSeleccion() {
             // Verificar si no hay ninguna opción seleccionada
-            if (!cbLista.isChecked && !cbSinAlcohol.isChecked && !cbIngredientes.isChecked) {
+            if (!cbLista.isChecked && !cbIngredientes.isChecked && !cbRandom.isChecked) {
                 Toast.makeText(this, "Elija una lista", Toast.LENGTH_SHORT).show()
                 return
             }
 
 
             // Verificar si más de una opción está seleccionada
-            val seleccionados = listOf(cbLista, cbSinAlcohol, cbIngredientes).count { it.isChecked }
+            val seleccionados = listOf(cbLista, cbRandom, cbIngredientes).count { it.isChecked }
             if (seleccionados > 1) {
                 Toast.makeText(this, "Seleccione solo una opción", Toast.LENGTH_SHORT).show()
                 return
             }
 
             // Verificar si cbSinAlcohol o cbIngredientes está seleccionado sin cbLista
-            if (!cbLista.isChecked && (cbSinAlcohol.isChecked || cbIngredientes.isChecked)) {
+            if (!cbLista.isChecked && cbIngredientes.isChecked) {
                 Toast.makeText(
                     this,
                     "Lista incompleta, por favor seleccione otra",
@@ -67,6 +67,17 @@ class MainPage : AppCompatActivity() {
                 val intent9 = Intent(this, listabebidas::class.java)
                 startActivity(intent9)
             }
+
+            if (cbRandom.isChecked) {
+                val cbCocktail: CheckBox = findViewById(R.id.cbrandom)
+
+                    val intentCocktail: Intent = Intent(this, CocktailActivity::class.java)
+                    startActivity(intentCocktail)
+
+            }
+
+
+
         }
 
         val btn8: Button = findViewById(R.id.selecbtn)
@@ -74,11 +85,7 @@ class MainPage : AppCompatActivity() {
             validarSeleccion()
 
         }
-        val btnCocktail: Button = findViewById(R.id.button_show_cocktail)
-        btnCocktail.setOnClickListener {
-            val intentCocktail: Intent = Intent(this, CocktailActivity::class.java)
-            startActivity(intentCocktail)
-        }
+
 
 
     }
