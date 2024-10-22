@@ -2,10 +2,12 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--
     <item
         android:id="@+id/itemtyc"
         android:icon="@android:drawable/ic_menu_mylocation"
         android:title="Terminos y Condiciones" />
+        -->
     <item
         android:id="@+id/itemcerrarsesion"
         android:icon="@android:drawable/ic_lock_power_off"

@@ -83,9 +83,9 @@ class CocktailActivity : AppCompatActivity() {
                 Util.cerrarSesion(this) // Llama a la función desde la clase Util
             }
 
-            R.id.itemtyc -> {
-                Toast.makeText(this, "Función en proceso", Toast.LENGTH_SHORT).show()
-            }
+//            R.id.itemtyc -> {
+//                Toast.makeText(this, "Función en proceso", Toast.LENGTH_SHORT).show()
+//            }
         }
         return true
     }

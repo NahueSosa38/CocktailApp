@@ -23,14 +23,16 @@
 
     <ImageView
         android:id="@+id/imagebebida"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombrebebida" />
 
+    <!--
     <Button
         android:id="@+id/button2"
         android:layout_width="108dp"
@@ -42,5 +44,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombrebebida" />
+    -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +27,23 @@ class MainPage : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+        val condicionesTextView: TextView = findViewById(R.id.condiciones)
+
+         fun mostrarCondicionesFragment() {
+            // Crear una instancia del fragmento
+            val fragment = CondicionesFragment()
+
+            // Mostrar el fragmento en el contenedor actual
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment) // Asegúrate de tener un contenedor para el fragmento en el layout
+                .addToBackStack(null) // Esto permite volver atrás
+                .commit()
+        }
+
+        condicionesTextView.setOnClickListener {
+            // Llamar al fragmento al hacer clic
+            mostrarCondicionesFragment()
+        }
 
 
         cbLista = findViewById(R.id.cblista)
@@ -113,9 +131,9 @@ class MainPage : AppCompatActivity() {
                 Util.cerrarSesion(this) // Llama a la función desde la clase Util
             }
 
-            R.id.itemtyc -> {
-                Toast.makeText(this, "Función en proceso", Toast.LENGTH_SHORT).show()
-            }
+//            R.id.itemtyc -> {
+//                Toast.makeText(this, "Función en proceso", Toast.LENGTH_SHORT).show()
+//            }
         }
         return true
     }
