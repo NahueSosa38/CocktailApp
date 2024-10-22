@@ -74,6 +74,12 @@ class MainPage : AppCompatActivity() {
             validarSeleccion()
 
         }
+        val btnCocktail: Button = findViewById(R.id.button_show_cocktail)
+        btnCocktail.setOnClickListener {
+            val intentCocktail: Intent = Intent(this, CocktailActivity::class.java)
+            startActivity(intentCocktail)
+        }
+
 
     }
 
