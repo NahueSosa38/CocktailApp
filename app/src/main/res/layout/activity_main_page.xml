@@ -23,6 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:text="Menu Principal"
+        android:fontFamily="cursive"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,30 +34,30 @@
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Lista de Bebidas"
+        android:text="Bebidas con Alcohol"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <CheckBox
+        android:id="@+id/cbsinalcohol"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Bebidas Sin Alcohol"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cblista" />
 
     <CheckBox
         android:id="@+id/cbrandom"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Bebida random"
+        android:text="¿No sabes que tomar?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cblista" />
-
-    <CheckBox
-        android:id="@+id/cbingredientes"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Lista Ingredientes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbrandom" />
+        app:layout_constraintTop_toBottomOf="@+id/cbsinalcohol" />
 
     <Button
         android:id="@+id/selecbtn"
@@ -65,7 +67,7 @@
         android:text="Seleccionar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbingredientes" />
+        app:layout_constraintTop_toBottomOf="@+id/cbrandom" />
 
     <ImageView
         android:id="@+id/imageView7"

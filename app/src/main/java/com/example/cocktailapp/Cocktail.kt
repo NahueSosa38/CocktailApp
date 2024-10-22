@@ -9,5 +9,6 @@ data class Drink(
     val strDrink: String,
     val strDrinkThumb: String,
     val strTags: String,
-    val strCategory: String
+    val strCategory: String,
+    val strInstructions: String
 )

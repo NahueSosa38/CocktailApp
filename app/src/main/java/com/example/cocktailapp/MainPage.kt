@@ -16,7 +16,7 @@ import androidx.appcompat.widget.Toolbar
 class MainPage : AppCompatActivity() {
     lateinit var cbLista: CheckBox
     lateinit var cbRandom: CheckBox
-    lateinit var cbIngredientes: CheckBox
+    lateinit var cbSinAlcohol: CheckBox
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +30,7 @@ class MainPage : AppCompatActivity() {
 
         cbLista = findViewById(R.id.cblista)
         cbRandom = findViewById(R.id.cbrandom)
-        cbIngredientes = findViewById(R.id.cbingredientes)
+        cbSinAlcohol = findViewById(R.id.cbsinalcohol)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -39,21 +39,21 @@ class MainPage : AppCompatActivity() {
 
         fun validarSeleccion() {
             // Verificar si no hay ninguna opción seleccionada
-            if (!cbLista.isChecked && !cbIngredientes.isChecked && !cbRandom.isChecked) {
+            if (!cbLista.isChecked && !cbSinAlcohol.isChecked && !cbRandom.isChecked) {
                 Toast.makeText(this, "Elija una lista", Toast.LENGTH_SHORT).show()
                 return
             }
 
 
             // Verificar si más de una opción está seleccionada
-            val seleccionados = listOf(cbLista, cbRandom, cbIngredientes).count { it.isChecked }
+            val seleccionados = listOf(cbLista, cbRandom, cbSinAlcohol).count { it.isChecked }
             if (seleccionados > 1) {
                 Toast.makeText(this, "Seleccione solo una opción", Toast.LENGTH_SHORT).show()
                 return
             }
 
             // Verificar si cbSinAlcohol o cbIngredientes está seleccionado sin cbLista
-            if (!cbLista.isChecked && cbIngredientes.isChecked) {
+            if (!cbLista.isChecked && cbSinAlcohol.isChecked) {
                 Toast.makeText(
                     this,
                     "Lista incompleta, por favor seleccione otra",
