@@ -5,49 +5,68 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class paginabebida : AppCompatActivity() {
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var bebidaAdapter: BebidaAdapter
+    private val paginabebida = mutableListOf<Drink>()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_paginabebida)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        // Inicializa el RecyclerView
+        recyclerView = findViewById(R.id.recyclerViewBebidas)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val btn7: Button = findViewById(R.id.volverbtn)
-        btn7.setOnClickListener {
+        // Inicializa el adaptador con la lista vacía
+        bebidaAdapter = BebidaAdapter(paginabebida)
+        recyclerView.adapter = bebidaAdapter
 
-            val intent7: Intent = Intent(this, listabebidas::class.java)
-            startActivity(intent7)
+        // Llama a la API para obtener las bebidas
+        obtenerBebidas()
 
-        }
-
-        val btn9: Button = findViewById(R.id.prinmenubtn)
+        val btn9: Button = findViewById(R.id.paginabebidas_volver)
         btn9.setOnClickListener {
 
             val intent9: Intent = Intent(this, MainPage::class.java)
             startActivity(intent9)
-
         }
 
-
-
-
     }
+
+    private fun obtenerBebidas() {
+        RetrofitInstance.api.getNonAlcoholicList().enqueue(object : Callback<Cocktail> {
+            override fun onResponse(call: Call<Cocktail>, response: Response<Cocktail>) {
+                val drinks = response.body()?.drinks
+                drinks?.let {
+                    paginabebida.addAll(it) // Agrega todas las bebidas a la lista
+                    bebidaAdapter.notifyDataSetChanged() // Notifica al adaptador que los datos han cambiado
+                }
+
+            }
+
+            override fun onFailure(call: Call<Cocktail>, t: Throwable) {
+                // Manejar error
+            }
+        })
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 

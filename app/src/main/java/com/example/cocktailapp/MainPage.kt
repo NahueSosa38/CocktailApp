@@ -52,15 +52,15 @@ class MainPage : AppCompatActivity() {
                 return
             }
 
-            // Verificar si cbSinAlcohol o cbIngredientes está seleccionado sin cbLista
-            if (!cbLista.isChecked && cbSinAlcohol.isChecked) {
-                Toast.makeText(
-                    this,
-                    "Lista incompleta, por favor seleccione otra",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return
-            }
+//            // Verificar si cbSinAlcohol o cbIngredientes está seleccionado sin cbLista
+//            if (!cbLista.isChecked && cbSinAlcohol.isChecked) {
+//                Toast.makeText(
+//                    this,
+//                    "Lista incompleta, por favor seleccione otra",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//                return
+//            }
 
             // Si todo está correcto y se seleccionó solo cbLista, proceder
             if (cbLista.isChecked) {
@@ -73,6 +73,14 @@ class MainPage : AppCompatActivity() {
 
                     val intentCocktail: Intent = Intent(this, CocktailActivity::class.java)
                     startActivity(intentCocktail)
+
+            }
+
+            if (cbSinAlcohol.isChecked) {
+                val cbsinalcohol: CheckBox = findViewById(R.id.cbsinalcohol)
+
+                val sinalcohol: Intent = Intent(this, paginabebida::class.java)
+                startActivity(sinalcohol)
 
             }
 
